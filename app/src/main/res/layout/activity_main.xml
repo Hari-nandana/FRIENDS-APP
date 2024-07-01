@@ -46,7 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
+        android:background="@color/white"
+        android:layout_margin="10px"
         android:id="@+id/submit"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIEW FRIENDS"
+        android:layout_margin="10px"
+        android:background="@color/white"
+        android:id="@+id/view"/>
+
 
 
 </LinearLayout>

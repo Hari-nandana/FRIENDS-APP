@@ -1,5 +1,6 @@
 package com.example.friendsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     EditText e1,e2,e3,e4;
-    AppCompatButton b1;
+    AppCompatButton b1,b2;
      String apiUrl="https://friendsapi-re5a.onrender.com/adddata";
 
     @Override
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         e3=(EditText) findViewById(R.id.nickname);
         e4=(EditText) findViewById(R.id.desc);
         b1=(AppCompatButton) findViewById(R.id.submit);
+        b2=(AppCompatButton) findViewById(R.id.view);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
+                                e1.setText(" ");
+                                e2.setText(" ");
+                                e3.setText(" ");
+                                e4.setText(" ");
                                 Toast.makeText(getApplicationContext(), "successfully added", Toast.LENGTH_LONG).show();
                             }
                         },
@@ -89,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(), ViewFriends.class);
+                startActivity(i);
+            }
         });
 
     }
